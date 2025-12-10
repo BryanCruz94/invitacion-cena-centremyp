@@ -1,0 +1,600 @@
+/* Fuentes elegantes para invitación */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Quicksand:wght@400;500;600&family=Great+Vibes&display=swap");
+
+:root {
+  font-family: "Quicksand", system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* tonos cálidos crema/dorado */
+  color: #7a5a26;              /* color de texto base */
+  background-color: #f6f0d7;   /* color de fondo general */
+
+  /* paleta principal (mantengo los nombres pero ahora son dorados) */
+  --pink-light: #f6f0d7;   /* crema muy claro, fondo suave */
+  --pink-main: #f0b030;    /* dorado principal (títulos, acentos) */
+  --pink-dark: #b6771e;    /* dorado oscuro / marrón para énfasis */
+  --card-bg: #ffffffe0;    /* blanco cálido semitransparente */
+  --text-main: #8b5b25;    /* texto principal en tono marrón dorado */
+  --text-muted: #7a6434;   /* texto secundario más suave */
+  --border-soft: #f2dfa6;  /* borde dorado muy claro */
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Fondo general */
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #ffeef6 0, #fce4ec 40%, #f8e1f4 100%);
+  background-image: url("../img/background.avif");
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem 0;
+}
+
+#root {
+  width: 100%;
+}
+
+/* Layout principal de la tarjeta */
+.app-container {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: center;
+}
+
+.card-layout {
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  backdrop-filter: blur(5px);
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(244, 143, 177, 0.45);
+  border: 1px solid var(--border-soft);
+  overflow: hidden; /* la imagen ocupa todo el ancho sin bordes blancos */
+  text-align: center;
+  padding: 0; /* sin padding: el hero va a todo el ancho */
+}
+
+/* Contenido interno (excepto portada/hero) */
+.card-content {
+  padding: 1.75rem 1.75rem 2.1rem;
+}
+
+/* Secciones dentro de la tarjeta + animación de entrada */
+.section {
+  margin-top: 1.35rem;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.section:first-of-type {
+  margin-top: 0;
+}
+
+.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title {
+  margin: 0 0 0.7rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--pink-dark);
+  opacity: 0.9;
+  font-family: "Playfair Display", serif;
+}
+
+/* Texto general */
+p {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.section-text {
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.invitation-intro {
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+/* Header del evento */
+.header-evento {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.header-badge {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--pink-dark);
+  background: rgba(244, 143, 177, 0.12);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+}
+
+.header-main-title {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--text-main);
+  font-family: "Great Vibes", cursive;
+}
+
+.header-subtitle {
+  margin: 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-family: "Playfair Display", serif;
+}
+
+.header-meta {
+  margin-top: 0.4rem;
+  font-size: 0.86rem;
+  color: var(--text-muted);
+}
+
+/* Marcos para ecos (arriba y abajo) */
+.eco-frame {
+  position: relative;
+  overflow: hidden;
+  border-radius: 22px;
+  border: 1px solid rgba(248, 187, 208, 0.9);
+  box-shadow: 0 12px 28px rgba(244, 143, 177, 0.5);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 245, 250, 0.95),
+    rgba(252, 228, 236, 0.9)
+  );
+}
+
+.eco-frame--top {
+  margin-bottom: 0.3rem;
+}
+
+.eco-frame--bottom {
+  margin-top: 0.3rem;
+}
+
+.eco-image {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.eco-frame--top .eco-image {
+  height: 210px;
+}
+
+.eco-frame--bottom .eco-image {
+  height: 180px;
+}
+
+/* Botones generales */
+.btn-primary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(135deg, var(--pink-main), var(--pink-dark));
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+  box-shadow: 0 10px 20px rgba(244, 143, 177, 0.4);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.03);
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(244, 143, 177, 0.5);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(244, 143, 177, 0.35);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Botón secundario (volver, etc.) */
+.btn-secondary {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.7rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--pink-main);
+  background: #ffffff;
+  color: var(--pink-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn-secondary:hover {
+  background: #ffe5f0;
+  transform: translateY(-1px);
+  box-shadow: 0 8px 16px rgba(244, 143, 177, 0.25);
+}
+
+.btn-secondary:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 10px rgba(244, 143, 177, 0.2);
+}
+
+/* PARA EL MÓDULO DE UBICACIÓN */
+.btn-location {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 999px;
+  border: none;
+  background: #ffffff;
+  color: var(--pink-dark);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(244, 143, 177, 0.25);
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.btn-location:hover {
+  background: #fff5fb;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(244, 143, 177, 0.35);
+}
+
+.btn-location:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(244, 143, 177, 0.25);
+}
+
+.btn-location-icon {
+  font-size: 1.1rem;
+}
+
+/* PARA EL MÓDULO DE CUENTA REGRESIVA */
+.countdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.countdown-label {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.4rem;
+  width: 100%;
+}
+
+.countdown-item {
+  background: #fff5fb;
+  border-radius: 16px;
+  padding: 0.5rem 0.3rem;
+  text-align: center;
+  border: 1px solid rgba(244, 143, 177, 0.35);
+}
+
+.countdown-value {
+  display: block;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--pink-dark);
+}
+
+.countdown-unit {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+}
+
+.countdown-message {
+  font-size: 0.95rem;
+  text-align: center;
+  color: var(--text-main);
+}
+
+/* PARA EL MÓDULO DE CONTACTO */
+.contact-buttons-row {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.contact-btn {
+  width: 70px;
+  height: 70px;
+  border-radius: 16px;
+  border: none;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 18px rgba(244, 143, 177, 0.25);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
+}
+
+.contact-btn:hover {
+  background: #fff5fb;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(244, 143, 177, 0.4);
+}
+
+.contact-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 14px rgba(244, 143, 177, 0.25);
+}
+
+.contact-icon {
+  width: 34px;
+  height: 34px;
+}
+
+/* FORMULARIO CONFIRMACIÓN */
+.rsvp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+/* Fila Adultos / Niños: columnas iguales */
+.form-row {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.form-row .form-field {
+  flex: 1;
+  min-width: 0; /* evita que uno empuje al otro */
+}
+
+.form-field label {
+  font-size: 0.85rem;
+  color: var(--text-main);
+}
+
+/* Inputs y textarea siempre al 100% del ancho */
+.form-field input,
+.form-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-field input {
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  padding: 0.55rem 0.9rem;
+  font-size: 0.9rem;
+  outline: none;
+}
+
+.form-field input:focus {
+  border-color: var(--pink-main);
+  box-shadow: 0 0 0 1px rgba(244, 143, 177, 0.4);
+}
+
+/* Centrar texto en los números (adultos / niños) */
+.form-row .form-field input[type="number"] {
+  text-align: center;
+}
+
+.form-message {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.form-message-error {
+  color: #c62828;
+}
+
+.form-message-success {
+  color: #2e7d32;
+}
+
+/* Opciones de asistencia */
+.attendance-options {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center; /* centradas */
+}
+
+.attendance-option {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: #fff;
+  text-align: center;
+}
+
+.attendance-option input {
+  accent-color: var(--pink-main);
+}
+
+.attendance-option.is-selected {
+  border-color: var(--pink-main);
+  background: rgba(244, 143, 177, 0.08);
+}
+
+.attendance-message {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* Textarea del formulario */
+.form-field textarea {
+  border-radius: 16px;
+  border: 1px solid var(--border-soft);
+  padding: 0.6rem 0.9rem;
+  font-size: 0.9rem;
+  resize: vertical;
+  min-height: 70px;
+  outline: none;
+}
+
+.form-field textarea:focus {
+  border-color: var(--pink-main);
+  box-shadow: 0 0 0 1px rgba(244, 143, 177, 0.4);
+}
+
+/* HERO PRINCIPAL DE LA INVITACIÓN (eco2) */
+.hero-invitacion {
+  position: relative;
+  width: 100%;
+  height: 280px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
+  color: #ffffff;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.35) 0%,
+    rgba(0, 0, 0, 0.55) 45%,
+    rgba(0, 0, 0, 0.15) 75%,
+    rgba(252, 228, 236, 0.0) 90%
+  );
+}
+
+.hero-content {
+  position: relative;
+  padding: 1.6rem 1.1rem 1.8rem;
+  z-index: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.75);
+}
+
+/* Nombre del evento y del bebé con tipografía elegante */
+.hero-event-title {
+  display: block;
+  font-size: 0.8rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.3rem;
+  opacity: 0.9;
+}
+
+.hero-baby-name {
+  margin: 0;
+  font-size: 2.2rem;
+  font-family: "Great Vibes", cursive;
+  line-height: 1.1;
+}
+
+.hero-tagline {
+  margin-top: 0.45rem;
+  font-size: 0.9rem;
+  opacity: 0.95;
+}
+
+/* Portada desde Canva (si la usas) */
+.hero-portada {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-portada-video {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+.hero-portada-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Responsive ligero */
+@media (max-width: 480px) {
+  .card-layout {
+    padding: 0; /* seguimos sin padding para que el hero sea full width */
+    border-radius: 22px;
+  }
+
+  .header-main-title {
+    font-size: 1.7rem;
+  }
+
+  .eco-frame--top .eco-image {
+    height: 190px;
+  }
+
+  .eco-frame--bottom .eco-image {
+    height: 170px;
+  }
+
+  .hero-invitacion {
+    height: 240px;
+    border-radius: 20px;
+  }
+
+  .hero-baby-name {
+    font-size: 2rem;
+  }
+}
