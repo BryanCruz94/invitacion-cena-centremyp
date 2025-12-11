@@ -4,11 +4,11 @@ export const EVENT_INFO = {
   babyName: "Niña Cruz Arcos",
   eventTitle: "Baby Shower",
   dateText: "Viernes 19 de diciembre 2025, 16:00",
-  locationText: "Hostería Castillo del Valle - Av. Ilalo S7-138 Vía a Conocoto",
+  locationText: "AV DE LOS SHYRIS ESQ ENRIQUE TELLO / EDF.EDUARDO TIPAN / ESQ / SANGOLQUÍ - RUMIÑAHUI",
   
 };
 
-export const EVENT_LOCATION_COORDS = `0°18'16.1"S 78°28'02.1"W`;
+export const EVENT_LOCATION_COORDS = `0°20'24.0"S 78°26'49.6"W`;
 // Fecha/hora del evento en formato ISO (ajusta a tu fecha real)
 export const EVENT_DATETIME_ISO = "2025-12-19T16:00:00-05:00";
 
