@@ -10,7 +10,7 @@ export const EVENT_INFO = {
 
 export const EVENT_LOCATION_COORDS = `0°20'24.0"S 78°26'49.6"W`;
 // Fecha/hora del evento en formato ISO (ajusta a tu fecha real)
-export const EVENT_DATETIME_ISO = "2025-12-19T16:00:00-05:00";
+export const EVENT_DATETIME_ISO = "2025-12-19T16:30:00-05:00";
 
 // Contacto de dueño de la invitación
 export const EVENT_OWNER_EMAIL = "jdavid_cruz@gmail.com";
